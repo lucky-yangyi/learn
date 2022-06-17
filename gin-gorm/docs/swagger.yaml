@@ -1,0 +1,93 @@
+basePath: /api/v1/
+definitions:
+  controller._ResponsePostList:
+    properties:
+      code:
+        description: 业务响应状态码
+        type: integer
+      data:
+        description: 数据
+        type: string
+      message:
+        description: 提示信息
+        type: string
+    type: object
+host: 127.0.0.1:8081
+info:
+  contact:
+    email: support@swagger.io
+    name: author：@yangyi
+    url: http://www.swagger.io/support
+  description: gin-gorm测试
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: bluebell_backend
+  version: "1.0"
+paths:
+  /login:
+    post:
+      consumes:
+      - application/json
+      description: 登录业务
+      parameters:
+      - description: B1earer 用户令牌
+        in: header
+        name: Authorization
+        type: string
+      - in: query
+        name: password
+        required: true
+        type: string
+      - in: query
+        name: username
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller._ResponsePostList'
+      security:
+      - ApiKeyAuth: []
+      summary: 登录业务
+      tags:
+      - 用户业务接口
+  /signup:
+    post:
+      consumes:
+      - application/json
+      description: 注册业务
+      parameters:
+      - description: Bearer 用户令牌
+        in: header
+        name: Authorization
+        type: string
+      - in: query
+        name: confirm_password
+        required: true
+        type: string
+      - in: query
+        name: password
+        required: true
+        type: string
+      - in: query
+        name: username
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller._ResponsePostList'
+      security:
+      - ApiKeyAuth: []
+      summary: 注册业务
+      tags:
+      - 用户业务接口
+swagger: "2.0"

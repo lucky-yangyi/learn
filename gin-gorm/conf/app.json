@@ -1,0 +1,9 @@
+{
+  "type": "mysql",
+  "host": "127.0.0.1",
+  "username": "root",
+  "password": "root",
+  "name": "bluebell",
+  "port": ":3306",
+  "ports": ":8080"
+}
